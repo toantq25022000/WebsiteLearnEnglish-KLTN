@@ -1,0 +1,185 @@
+/* Normal desktop :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+
+}
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+
+}
+
+ 
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+}
+
+ 
+/* small mobile :320px. */
+@media (max-width: 767px) {
+  .submission_vioend{
+    padding:0 !important;
+  }
+  .modal_f_family,
+  .body_modal_oksubmisson{
+      width: auto;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .btn_start_vioend{
+      padding: 15px 11px !important;
+    }
+
+    .search-mobile{
+      display: none;
+    }
+ 
+  .come-teacher .text-bold{
+    padding: 15px 20px;
+  }
+  .txt-bc-gv .text-white {
+    line-height: 41px;
+  }
+
+  #scrollUp, #back-top {
+    right: 72px;
+  }
+  #exTab_profile .nav-pills > li a{
+    font-size: 15px;
+  }
+  .detail-video-course{
+    height: 300px;
+  }
+  .detail-video-course .vd-wrap{
+    width:100%;
+    height:100%;
+  }
+
+  .detail-video-course video{
+    width:100%;
+    height:100%;
+  }
+  .accordionExample .label_accord{
+    width: 100%;
+  }
+  .accordionExample .label_accord{
+    width: 100%;
+  }
+
+  .accordionExample .label_accord .bg-header-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90% !important;
+  }
+  .accordionExample .label_accord .text-header-item {
+    font-size: 15px;
+    margin: 0;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .accordionExample .label_accord .khta_arscore{
+    right: 36px;
+    width: 113px;
+    top: 8px;
+  }
+  .accordionExample .label_accord .khta_arscore .khtabs_text{
+    font-size: 15px;
+  }
+  .khtabs_score{
+    font-size: 15px;
+  }
+  .accordionExample  .wrapper-exce-sub{
+    height: 660px;
+  }
+  .accordionExample  .wrapper-exce-sub .body-sub{
+    height: auto;
+  }
+  .accordionExample  .wrapper-exce-sub .khta_area{
+    height: auto;
+  }
+  .accordionExample  .wrapper-exce-sub .khta_area .kltc_area{
+    height: auto;
+    margin-top: 0;
+  }
+  .wrapper-exce-sub{
+    margin: 20px 5px;
+    width: 97%;
+  }
+  .klmcb_submit, .klmcb_next, .klmcb_finish, .klmcb_replay{
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .arscore{
+    top: 65px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .modal_ .bg_modal{
+    width: 339px;
+  }
+  .khta_iconcor, .khta_iconincor { 
+    left: 50%;
+    transform: translate(-50%, 0) scale(0.7);
+  }
+  .rainbow{
+    background-size: 360px;
+    background-repeat: no-repeat;
+    width:100%;
+  }
+  .fi_arscore{
+    width: 200px;
+    height: 200px;
+  }
+  .fi_arscore  .fi_yscore{
+    font-size: 70px;
+  }
+  .fi_arscore .fi_tscore {
+    font-size: 46px;
+  }
+  .klmcb_replay{
+    top: 473px;
+  }
+  .hint-number{
+    top:139px;
+  }
+  .ardrag{
+    padding: 0 5px;
+  }
+  .khta_arins{
+    width:100%;
+  }
+  .khta_game1_artext {
+    width: 186px;
+    top: 298px;
+    left: 185px;
+    font-size: 18px;
+}
+.khta_game1_btran{
+
+  display:none;
+}
+.khta_game1_bstart {
+  width: 196px;
+  height: 88px;
+  top: 429px;
+  left: 236px;
+  background-repeat: no-repeat;
+    background-size: 128px;
+}
+.slicknav_nav{
+  overflow: inherit;
+}
+}
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.container {width:450px}
+}
