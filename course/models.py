@@ -7,8 +7,8 @@ from django.conf import settings
 
 class Course(models.Model):
     title = models.CharField(max_length=45)
-    course_img = models.ImageField()
-    course_banner = models.ImageField()
+    course_img = models.ImageField(upload_to='course/banner/')
+    course_banner = models.ImageField(upload_to='course/banner_detail/')
     description = models.TextField(default='')
     excerpt = models.TextField(default='',max_length=300)
     price_month = models.DecimalField(default=0,max_digits=8, decimal_places=0)
