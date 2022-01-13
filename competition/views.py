@@ -445,6 +445,7 @@ def HistoryMemberCompete(request,id_request):
     
     context = {
         'list_history':list_history_qs,
+        'user_request':user_request,
         'total_points_title':total_points_title,
         'win1v1':win1v1,
         'win1v9':win1v9,

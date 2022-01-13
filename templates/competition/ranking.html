@@ -35,7 +35,8 @@
 
     function add_member(root,data,dataRankIndex,type,week1,rankIndex){
         $(root + ' .ctr-r-total').empty();
-        console.log(data)
+        var url_href_history = "{% url 'competition:history_member_competition' id_request=3 %}"
+  
         for(let i = 0; i < data.length; i++)
         {
             var ele_star = ``;
@@ -45,7 +46,7 @@
             }
             $(root + ' .ctr-r-total').append(
             `
-            <a href="#" class="tr r-row" target="_blank" onmousemove="return show_hint_room(event,'Xem lịch sử thi đấu');" onmouseout="return hide_hint_room(event);">
+            <a href="${url_href_history.replace("3", data[i].id)}" class="tr r-row" target="_blank" onmousemove="return show_hint_room(event,'Xem lịch sử thi đấu');" onmouseout="return hide_hint_room(event);">
                   <div class="td td-first ctr-r-num"></div>
                  <div class="td ctr-r-nickname text-left">
                      <div class="inline-block ctr-r-avata">
@@ -85,8 +86,7 @@
                  </div>
                  <div class="td">
                      <span class="ctr-r-name"></span>
-                     <span class="ctr-r-star">
-                       
+                     <span class="ctr-r-star">            
                      </span>
                  </div>
                  <div class="td ctr-r-win"></div>
@@ -209,7 +209,6 @@
     });
 
     function search_by_week () {
-        console.log("chay vao day")
         var week =parseInt($('#week').val());
         // var class_id = $('#class').val();
         $('#ctr-r-time-select').html("TUẦN 0"+week);

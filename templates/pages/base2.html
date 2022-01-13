@@ -35,7 +35,7 @@
                 </a>
                 <a href="{% url 'competition:list_room_competition' %}" class="click ctr-head-list"><i class="fa fa-home" style="font-size: 22px;" aria-hidden="true"></i> <span>Tìm phòng đấu</span></a>
                 <a href="{%  url  'competition:ranking_competition' %}" class="click ctr-head-rank"><i class="fa fa-flag" aria-hidden="true"></i> <span>Bảng xếp hạng</span></a>
-                <a href="{% url 'competition:history_member_competition' %}" class="click ctr-head-history"><i class="fa fa-hourglass-half" aria-hidden="true"></i> <span>Lịch sử thi đấu</span></a>
+                <a href="{% url 'competition:history_member_competition' request.user.id %}" class="click ctr-head-history"><i class="fa fa-hourglass-half" aria-hidden="true"></i> <span>Lịch sử thi đấu</span></a>
                 <div class="btn-group ctr-head-intro">
                   <i class="fa fa-bookmark" aria-hidden="true"></i>
                   <div class="click inline-block dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Hướng dẫn <span class="caret"></span> </div>
