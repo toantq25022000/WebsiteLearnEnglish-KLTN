@@ -50,7 +50,7 @@
                 <!-- header-member-info -->
                 <div class="inline-block ctr-head-member" id="ctr-header-member-info" style="position: relative;" >
                     <a class="ctr-h-avata" href="#">
-                        <img class="ctr-h-avata-img" src="//data.tienganh123.com/images/member/noavatar.gif">
+                        <img class="ctr-h-avata-img" src="{{request.user.std_img.url}}">
                         <img class="ab ctr-h-vip-img " src="{% static 'img/icon/ctr-vip-icon.png' %}" alt="">
                     </a>
                     <span class="ctr-hm-info text-left">
@@ -83,7 +83,7 @@
                             </div>
                         </li>
                         <li class="list-group-item ctr-hmia-profile">
-                            <a class="text-center ctr-hmia-profile-link" href="https://www.tienganh123.com/member/3307755#hocba">Về trang học bạ của tôi</a>
+                            <a class="text-center ctr-hmia-profile-link" href="#">Về trang học bạ của tôi</a>
                         </li>
                         <li class="list-group-item ctr-hmia-logout" style="background-color: #d9534f;">
                             <a class="text-center ctr-hmia-logout-link" onclick="" href="{% url 'home:logoutUser' %}" style="color: #fff;">Thoát tài khoản</a>

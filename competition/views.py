@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from course.models import Course
 from .models import( TypeCompetition, RoomCompetition,ScoreCompetition,ManagerUserCompetition,
                 ListTopticCompetition,TopicOfClassCompetition,ManagerCalculateRankingPoints)
@@ -378,8 +378,12 @@ def GetRankByWeek(request):
             rankIndex = next((i for i, item in enumerate(rank_1v9) if item["id"] == request.user.id), -1)
             return JsonResponse({"type":"1v9","rankingType9AtTime":list(rank_1v9),"rankIndex":rankIndex, "rankIndexUserType9":rankIndexUserType9,})
       
-def HistoryMemberCompete(request):
-    kqRank = rankUserInWeek(request.user.id)
+def HistoryMemberCompete(request,id_request):
+    list_user_qs = MyUser.objects.filter(id=id_request)
+    if list_user_qs is None:
+        return redirect('competition:list_room_competition')
+    user_request = list_user_qs[0]
+    kqRank = rankUserInWeek(user_request.id)
     
     dt_today = datetime.today()
     day_today = dt_today.day
@@ -410,8 +414,8 @@ def HistoryMemberCompete(request):
     datetimeStart = datetime(year_today,month_today,day_start)
     datetimeEnd = datetime(year_today,month_today,day_end)
 
-    list_history_qs = ScoreCompetition.objects.filter(user=request.user,timestart__range = (datetimeStart,datetimeEnd)).order_by('-id')[:20]
-    manager_user_history = ManagerUserCompetition.objects.filter(user=request.user)
+    list_history_qs = ScoreCompetition.objects.filter(user=user_request,timestart__range = (datetimeStart,datetimeEnd)).order_by('-id')[:20]
+    manager_user_history = ManagerUserCompetition.objects.filter(user=user_request)
     
     total_win = 0
     title_user = ''
