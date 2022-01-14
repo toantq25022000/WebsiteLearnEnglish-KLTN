@@ -83,7 +83,7 @@
     
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
     const listRoomSocket = new WebSocket(
-        'ws://' +
+        (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://' +
         window.location.host +
         '/ws/competition/' +
         roomName +
