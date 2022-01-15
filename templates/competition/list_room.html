@@ -82,7 +82,7 @@
 <script>
     
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
-    const listRoomSocket = new WebSocket(
+    const listRoomSocket = new ReconnectingWebSocket(
         (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://' +
         window.location.host +
         '/ws/competition/' +
@@ -260,7 +260,12 @@
         }
     }
     listRoomSocket.onclose = function(e) {
-        console.error('listRoomSocket socket closed unexpectedly');
+        var r = confirm("Bạn vừa bị mất kết nối với máy chủ! Bấm OK hoặc nhấn Enter để kết nối lại");
+        if (r == true) {
+            location.reload();
+        } else {
+            location.reload();
+        }   
     };
     
 </script>
