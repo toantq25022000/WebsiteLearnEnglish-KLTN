@@ -82,12 +82,13 @@
 <script>
     
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
-    const listRoomSocket = new ReconnectingWebSocket(
-        (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://' +
+    var urlSocket =  (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://';
+    var listRoomSocket = new ReconnectingWebSocket(
+        urlSocket +
         window.location.host +
         '/ws/competition/' +
         roomName +
-        '/'
+        '/', null, {debug: true, reconnectInterval: 3000}
     );
 
     listRoomSocket.onmessage = function (e) {
