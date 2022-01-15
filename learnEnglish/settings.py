@@ -25,7 +25,7 @@ SECRET_KEY = 'zq5zr@v8pi^&a4wg!@u#ruh5bp75v)!dm_xv+ufmfo+*u%9g6-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hoctienganhmienphi-treem.herokuapp.com']
+ALLOWED_HOSTS = ['hoctienganhmienphi-treem.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -79,7 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'learnEnglish.wsgi.application'
 
-ASGI_APPLICATION = 'learnEnglish.routing.application'
+ASGI_APPLICATION = 'learnEnglish.asgi.application'
 
 
 # Database

@@ -83,12 +83,12 @@
     
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
     var urlSocket =  (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://';
-    var listRoomSocket = new ReconnectingWebSocket(
+    var listRoomSocket = new WebSocket(
         urlSocket +
         window.location.host +
         '/ws/competition/' +
         roomName +
-        '/', null, {debug: true, reconnectInterval: 3000}
+        '/'
     );
 
     listRoomSocket.onmessage = function (e) {
