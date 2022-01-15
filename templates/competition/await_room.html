@@ -369,7 +369,7 @@
     const user_id = JSON.parse(document.getElementById('user_id').textContent);
 
      
-    const awaitRoomSocket = new ReconnectingWebSocket(
+    const awaitRoomSocket = new WebSocket(
         (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://' +
         window.location.host +
         '/ws/wait/' +

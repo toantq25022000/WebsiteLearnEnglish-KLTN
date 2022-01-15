@@ -213,7 +213,7 @@ const idUserHost = JSON.parse(document.getElementById('id-host').textContent);
 const user_id = JSON.parse(document.getElementById('user_id').textContent);
 const listUserItem = Array.from(document.querySelectorAll('.ctr-pr-item'));
 console.log(urlExcelData)
-const playRoomSocket = new ReconnectingWebSocket(
+const playRoomSocket = new WebSocket(
     (window.location.protocol === 'https:' ? 'wss' : 'ws') + '://' +
     window.location.host +
     '/ws/play/' +
