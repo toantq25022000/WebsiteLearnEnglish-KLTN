@@ -1,4 +1,4 @@
-{% extends "pages/base.html" %} {% block title %} Ket qua tim kiem{% endblock %}
+{% extends "pages/base.html" %} {% block title %} Kết quả tìm kiếm{% endblock %}
 {% load nav_tag %} {%load static%} {%block content%}
 <!--? slider Area Start-->
 <section class="slider-area slider-area2">
@@ -9,15 +9,15 @@
         <div class="row">
           <div class="col-xl-8 col-lg-11 col-md-12">
             <div class="hero__caption hero__caption2">
-              <h1 data-animation="bounceIn" data-delay="0.2s">Search</h1>
+              <h1 data-animation="bounceIn" data-delay="0.2s">Tìm kiếm</h1>
               <!-- breadcrumb Start-->
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
-                    <a href="{%url 'home:index'%}">Home</a>
+                    <a href="{%url 'home:index'%}">Trang chủ</a>
                   </li>
                   <li class="breadcrumb-item">
-                    <a href="{{request.get_full_path}}">Search</a>
+                    <a href="{{request.get_full_path}}">Tìm kiếm</a>
                   </li>
                 </ol>
               </nav>
@@ -53,12 +53,12 @@
     <div class="row item-result-search">
       <div class="col-9">
         <div class="unit-result-s">
-          Unit: <a href="{% url 'course:detailcourse' getCourse.id %}">{{item.title}} ({{item.title_vi}})</a> 
+          Chương: <a href="{% url 'course:detailcourse' getCourse.id %}">{{item.title}} ({{item.title_vi}})</a> 
         </div>
-        <div class="course-result-s">Course: <span>{{getCourse.title}}</span></div>
+        <div class="course-result-s">Khóa học: <span>{{getCourse.title}}</span></div>
       </div>
       <div class="col-3 d-flex-center">
-        <a class="link-view-course" href="{% url 'course:detailcourse' getCourse.id %}"><i class="fa fa-eye"></i>View</a>
+        <a class="link-view-course" href="{% url 'course:detailcourse' getCourse.id %}"><i class="fa fa-eye"></i>Xem</a>
       </div>
     </div>
 

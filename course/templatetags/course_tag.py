@@ -4,15 +4,29 @@ from course.models import (
     TypeExercise,ExerciseArrange,ExerciseWordMissing,
 )
 from usermember.models import (
-    ScoreStudent
+    ScoreStudent,MyUser
 )
 
 from order.models import (
     Order,OrderItem
 )
+from competition.models import ManagerUserCompetition
 from decimal import *
 from datetime import datetime,date
 register = template.Library()
+
+@register.simple_tag(name="get_title_compete")
+def get_title_compete(id):
+    managerUser = ManagerUserCompetition.objects.filter(user_id=id)
+    manager_user = None
+    if managerUser:
+        manager_user = managerUser[0]
+    else:
+        user_re = MyUser.objects.filter(id=id)
+        manager_user = ManagerUserCompetition.objects.create(user=user_re[0],title="Newbie")
+    return manager_user
+
+
 
 
 @register.filter

@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title%} {% endblock %}</title>
     {% load static%}
+    {%load course_tag %}
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -48,6 +49,7 @@
                   </ul>
                 </div>
                 <!-- header-member-info -->
+                {% get_title_compete request.user.id as manage_title_user%}
                 <div class="inline-block ctr-head-member" id="ctr-header-member-info" style="position: relative;" >
                     <a class="ctr-h-avata" href="#">
                         <img class="ctr-h-avata-img" src="{{request.user.std_img.url}}">
@@ -56,7 +58,7 @@
                     <span class="ctr-hm-info text-left">
                         <span class="ctr-hmi-username">{{request.user.username}}</span><br>
                         <span class="ctr-hmi-achieve">
-                        <span class="ctr-hmia-name newbie" style="color: #e69b57"><span class="ctr-r-name">Newbie</span></span>
+                        <span class="ctr-hmia-name newbie" style="color: #e69b57"><span class="ctr-r-name">{{manage_title_user.title}}</span></span>
                         <span class="ctr-hmia-star">
                             <img src="{% static 'img/icon/ctr-star.png' %}">
                         </span>
@@ -72,7 +74,7 @@
                             <div style="margin-bottom: 5px;">Danh hiệu tiếp theo</div>
                             <div data-toggle="modal" href="#ctr-modal-appellation" class="ctr-h-next-avata" style="background-image: url('/static/img/head-newbie2.png')"></div>
                             <div class="text-center ctr-hmia-name">
-                            <div class="inline-block newbie"><span class="ctr-r-name" style="color: #e69b57">Newbie</span></div>
+                            <div class="inline-block newbie"><span class="ctr-r-name" style="color: #e69b57">{{manage_title_user.title}}</span></div>
                             </div>
                         </li>
                         <li class="list-group-item ctr-h-percent ">

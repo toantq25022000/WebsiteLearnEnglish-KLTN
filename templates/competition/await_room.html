@@ -1,6 +1,6 @@
 {% extends "pages/base2.html" %} 
 {%load static%} 
- 
+ {%load course_tag %}
  {% block title %} Thi đấu Tiếng anh trực tuyến {% endblock %}
 
 {%block content%}
@@ -38,7 +38,7 @@
                     </div>
                     <div class="ctr-w-list-member" id="ctr-w-list-member">
                         <div class="ctr-w-list-member-real" id="list-member-real-wait-room">
-                            
+                            {% get_title_compete host.id as manager_title_host %}
                             <div class="flip ctr-w-member host_user_ newbie ctr-ready-member" id="{{host.id}}" mem_id="{{host.id}}" onclick="return flip_active(this);">
                                 <div class="flip-content">
                                     <div class="front face">
@@ -54,12 +54,18 @@
                                             </div>
                                             <div class="text-center ctr-wm-username">{{host.username}}</div>
                                             <div class="text-center ctr-wm-level d-flex-center">
-                                                <span class="ctr-wml-name" style="color: #e69b57">Newbie</span>
+                                                <span class="ctr-wml-name" style="color: #e69b57">{{manager_title_host.title}}</span>
                                                 <span class="ctr-wml-star">
                                                     <img src="/static/img/icon/ctr-star.png">
                                                 </span>
                                             </div>
-                                            <div class="text-center ctr-wm-win-number">0</div>
+                                            <div class="text-center ctr-wm-win-number">
+                                                {%if room.type_compete.max_quantity_add_user == 1%}
+                                                {{manager_title_host.win_1v1 }}
+                                                {%else%}
+                                                {{manager_title_host.win_1v9 }}
+                                                {%endif%}
+                                            </div>
                                             <div class="text-center ctr-wm-win-name">TRẬN THẮNG</div>
                                         </div>
                                     </div>
@@ -68,19 +74,19 @@
                                             <div class="text-center ctr-wmb-title">ĐÃ THẮNG</div>
                                             <div class="table">
                                                 <div class="text-center table-cell">
-                                                    <div class="ctr-wm-win">0</div>
+                                                    <div class="ctr-wm-win">{{manager_title_host.win_1v9 }}</div>
                                                     <div class="ctr-wm-type">
                                                         Trận<br>1 vs 9
                                                     </div>
                                                 </div>
                                                 <div class="table-cell">
-                                                    <div class="ctr-wm-win">0</div>
+                                                    <div class="ctr-wm-win">{{manager_title_host.win_1v1 }}</div>
                                                     <div class="ctr-wm-type">
                                                         Trận<br>1 vs 1
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="text-center ctr-wm-username">phantankiet088@gmail.com</div>
+                                            <div class="text-center ctr-wm-username">{{host.username}}</div>
                                             <div class="text-center ctr-wm-level">
                                                 <span class="ctr-wml-name" style="color: #e69b57">Newbie</span>
                                                 <span class="ctr-wml-star">
@@ -95,6 +101,7 @@
                             </div>
 
                             {%for item in list_user_john%}
+                            {% get_title_compete item.id as manager_title_member %}
                             <div class="flip ctr-w-member expert" id="{{item.id}}" mem_id="{{item.id}}" onclick="return flip_active(this);">
                                 <div class="flip-content">
                                     <div class="front face">
@@ -106,18 +113,24 @@
                                             <div class="ctr-wm-ready">
                                                 <img class="ctr-wm-master-icon" src="/static/img/compete/ctr-wm-master-icon.png">
                                                 <img class="ctr-wm-ready-icon " src="/static/img/compete/ctr-wm-ready-status.png">
-                                                <span class="text-center pull-right ctr-wm-num">10</span>
+                                                <span class="text-center pull-right ctr-wm-num">5</span>
                                             </div>
                                             <div class="text-center ctr-wm-username">{{item.username}}</div>
                                             <div class="text-center ctr-wm-level">
-                                                <span class="ctr-wml-name" style="color: #ffe8a3">Expert</span>
+                                                <span class="ctr-wml-name" style="color: #ffe8a3">{{manager_title_member.title}}</span>
                                                 <span class="ctr-wml-star">
                                                     <img src="/static/img/icon/ctr-star.png">
                                                     <img src="/static/img/icon/ctr-star.png">
                                                     <img src="/static/img/icon/ctr-star.png">
                                                 </span>
                                             </div>
-                                            <div class="text-center ctr-wm-win-number">1129</div>
+                                            <div class="text-center ctr-wm-win-number">
+                                                {%if room.type_compete.max_quantity_add_user == 1%}
+                                                {{manager_title_member.win_1v1 }}
+                                                {%else%}
+                                                {{manager_title_member.win_1v9 }}
+                                                {%endif%}
+                                            </div>
                                             <div class="text-center ctr-wm-win-name">TRẬN THẮNG</div>
                                         </div>
                                     </div>
@@ -126,13 +139,13 @@
                                             <div class="text-center ctr-wmb-title">ĐÃ THẮNG</div>
                                             <div class="table">
                                                 <div class="text-center table-cell">
-                                                    <div class="ctr-wm-win">1295</div>
+                                                    <div class="ctr-wm-win">{{manager_title_member.win_1v9 }}</div>
                                                     <div class="ctr-wm-type">
                                                         Trận<br>1 vs 9
                                                     </div>
                                                 </div>
                                                 <div class="table-cell">
-                                                    <div class="ctr-wm-win">1129</div>
+                                                    <div class="ctr-wm-win">{{manager_title_member.win_1v1 }}</div>
                                                     <div class="ctr-wm-type">
                                                         Trận<br>1 vs 1
                                                     </div>
@@ -140,14 +153,14 @@
                                             </div>
                                             <div class="text-center ctr-wm-username">{{item.username}}</div>
                                             <div class="text-center ctr-wm-level">
-                                                <span class="ctr-wml-name" style="color: #ffe8a3">Expert</span>
+                                                <span class="ctr-wml-name" style="color: #ffe8a3"> {{manager_title_host.title }}</span>
                                                 <span class="ctr-wml-star">
                                                     <img src="/static/img/icon/ctr-star.png">
                                                     <img src="/static/img/icon/ctr-star.png">
                                                     <img src="/static/img/icon/ctr-star.png">
                                                 </span>
                                             </div>
-                                            <div class="text-center ctr-wm-win-number" style="line-height: 34px;"><a href="https://www.tienganh123.com/member/3041456#hocba" target="_blank" class="navbar-link" style="font-size: 14px;">Trang cá nhân</a></div>
+                                            <div class="text-center ctr-wm-win-number" style="line-height: 34px;"><a href="#" target="_blank" class="navbar-link" style="font-size: 14px;">Trang cá nhân</a></div>
                                             <div class="text-center ctr-wm-win-name"></div>
                                         </div>
                                     </div>

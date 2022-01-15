@@ -35,12 +35,13 @@ def get_current_users():
 
 @login_required(login_url='/login/')
 def ListRoomCompetition(request):
+  
     form_class = FormClassCompetition()
     lst_room = RoomCompetition.objects.all()
     context = {
         'form_class':form_class,
         'lst_room':lst_room,
-        'room_name':'broadcast'
+        'room_name':'broadcast',
     }
     return render(request, 'competition/list_room.html',context)
 
@@ -172,8 +173,6 @@ def RoomWaitCompetition(request, room_name):
         
 
 @login_required(login_url='/login/')
-
-
 def InitRoomCompetition(request):
 
     list_type = TypeCompetition.objects.all()
