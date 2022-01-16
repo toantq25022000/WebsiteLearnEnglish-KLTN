@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,12 +26,13 @@ SECRET_KEY = 'zq5zr@v8pi^&a4wg!@u#ruh5bp75v)!dm_xv+ufmfo+*u%9g6-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hoctienganhmienphi-treem.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['hoctienganhmienphi-treem.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # 'whitenoise.runserver_nostatic',
     'channels',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,7 +137,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+WHITENOISE_USE_FINDERS = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -143,16 +145,19 @@ LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIAFILES_DIRS = (os.path.join(BASE_DIR, "media"),)
 
 PAYPAL_CLIENT_ID = "ARaZ2EHNqXvXfl_L3mRZryFDkDZ_SEJc4JtcxwP25EzgP3I_Q3nr8JsyVpMpf-HnuPetz7kl0v_SY0W5"
 PAYPAL_CLIENT_SECRET = "EBfDUYC-WIR-wrMtoQ_3g-tj0vhZCd15mUcCJjsZeDRx28aPOVMTf3qbsrkuAlVJ4ScEHFiO1CXB42-k"
 
+
+# db_from_env = dj_database_url.config(default ='postgres://joyyqstlaatirm:89ddd2dbcef1f03ed13f8a36e65b2b9416c6f2541e2178798bc2eabd81d579fd@ec2-52-0-114-209.compute-1.amazonaws.com:5432/d7mhrvem1qj4e5',conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 CHANNEL_LAYERS = {
     "default": {
