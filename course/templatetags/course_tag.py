@@ -1,7 +1,8 @@
 from django import template
 from course.models import (
     Course,Chapter, Lesson,ExerciseChoiceAnswer,
-    TypeExercise,ExerciseArrange,ExerciseWordMissing,
+    TypeExercise,ExerciseArrange,ExerciseWordMissing,GameGoldenFish,GameWordMemoryCards,
+    ImageOfGame, TypeGame
 )
 from usermember.models import (
     ScoreStudent,MyUser
@@ -15,6 +16,7 @@ from decimal import *
 from datetime import datetime,date
 register = template.Library()
 
+
 @register.simple_tag(name="get_title_compete")
 def get_title_compete(id):
     managerUser = ManagerUserCompetition.objects.filter(user_id=id)
@@ -25,8 +27,6 @@ def get_title_compete(id):
         user_re = MyUser.objects.filter(id=id)
         manager_user = ManagerUserCompetition.objects.create(user=user_re[0],title="Newbie")
     return manager_user
-
-
 
 
 @register.filter
@@ -84,6 +84,19 @@ def chapter_of_course(courseId):
 def lesson_of_chapter(value):
     return Lesson.objects.filter(chapter_id = value)
 
+@register.simple_tag(name="get_game_wordmemorycard")
+def get_game_wordmemorycard(id):
+    qs = GameWordMemoryCards.objects.filter(lesson_id = id)
+    if qs:
+        return qs[0]
+    return None
+
+@register.simple_tag(name="get_game_goldenfish")
+def get_game_goldenfish(id):
+    qs = GameGoldenFish.objects.filter(lesson_id = id)
+    if qs:
+        return qs[0]
+    return None
 
 @register.simple_tag(name="get_exercise_choice")
 def get_exercise_choice(id):
@@ -138,6 +151,33 @@ def sumTotalScoretypeExercise(typeId,lessId):
             return obj.num_rows * 10
     return 0
 
+@register.simple_tag(name="sumTotalScoretypeGame")
+def sumTotalScoretypeGame(typeId,lessId):
+    if typeId == 1:
+        get__WMC = GameWordMemoryCards.objects.filter(type_id=1,lesson_id=lessId)
+        if get__WMC:
+            obj = get__WMC[0]
+            return obj.imgs.all().count() * 10
+       
+    if typeId == 2:
+        get_goldenfish = GameGoldenFish.objects.filter(type_id=2,lesson_id=lessId)
+        if get_goldenfish:
+            obj = get_goldenfish[0]
+            return obj.num_rows * 10
+
+    return 0
+
+@register.simple_tag(name="sum_score_game")
+def sum_score_game(userId,courseId,lessonId,typeGame):
+    getScore = ScoreStudent.objects.filter(user_id=userId,course_id=courseId,lesson_id=lessonId,type_game_id=typeGame)
+    sum_score = 0
+    if getScore:
+        getScore = getScore[0]
+        sum_score = getScore.score
+    else:
+        sum_score = 0
+    return sum_score
+
 @register.simple_tag(name="sum_score_exercise")
 def sum_score_exercise(userId,courseId,lessonId,typeExe):
     getScore = ScoreStudent.objects.filter(user_id=userId,course_id=courseId,lesson_id=lessonId,type_exercise_id=typeExe)
@@ -162,6 +202,10 @@ def total_score_lesson(lessonId):
         if list_exist_type_exe:
             for item in list_exist_type_exe:
                 total_score += sumTotalScoretypeExercise(item.id,list_less.id)
+        list_exist_type_game =TypeGame.objects.all()
+        if list_exist_type_game:
+            for item in list_exist_type_game:
+                total_score += sumTotalScoretypeGame(item.id,list_less.id)
     else:
         total_score = 0
     return total_score
@@ -194,6 +238,10 @@ def total_score_chapter(userId,courseId,chapterId):
             if list_exist_type_exe:
                 for item in list_exist_type_exe:
                     total_score += sumTotalScoretypeExercise(item.id,less.id)
+            list_exist_type_game =TypeGame.objects.all()
+            if list_exist_type_game:
+                for item in list_exist_type_game:
+                    total_score += sumTotalScoretypeGame(item.id,less.id)
     else:
         total_score = 0
     return total_score
