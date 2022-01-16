@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['hoctienganhmienphi-treem.herokuapp.com','localhost','127.0.0.1
 # Application definition
 
 INSTALLED_APPS = [
-    # 'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     'channels',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -156,8 +156,8 @@ PAYPAL_CLIENT_ID = "ARaZ2EHNqXvXfl_L3mRZryFDkDZ_SEJc4JtcxwP25EzgP3I_Q3nr8JsyVpMp
 PAYPAL_CLIENT_SECRET = "EBfDUYC-WIR-wrMtoQ_3g-tj0vhZCd15mUcCJjsZeDRx28aPOVMTf3qbsrkuAlVJ4ScEHFiO1CXB42-k"
 
 
-# db_from_env = dj_database_url.config(default ='postgres://joyyqstlaatirm:89ddd2dbcef1f03ed13f8a36e65b2b9416c6f2541e2178798bc2eabd81d579fd@ec2-52-0-114-209.compute-1.amazonaws.com:5432/d7mhrvem1qj4e5',conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config(default ='postgres://joyyqstlaatirm:89ddd2dbcef1f03ed13f8a36e65b2b9416c6f2541e2178798bc2eabd81d579fd@ec2-52-0-114-209.compute-1.amazonaws.com:5432/d7mhrvem1qj4e5',conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 CHANNEL_LAYERS = {
     "default": {
