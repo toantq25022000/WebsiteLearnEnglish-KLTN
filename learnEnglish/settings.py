@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zq5zr@v8pi^&a4wg!@u#ruh5bp75v)!dm_xv+ufmfo+*u%9g6-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['hoctienganhmienphi-treem.herokuapp.com', 'localhost', '127.0.0.1']
 
