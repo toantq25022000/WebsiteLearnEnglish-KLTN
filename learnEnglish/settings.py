@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['hoctienganhmienphi-treem.herokuapp.com','localhost','127.0.0.1
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     'channels',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -137,9 +137,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-WHITENOISE_USE_FINDERS = True
+# WHITENOISE_USE_FINDERS = True
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -156,8 +156,8 @@ PAYPAL_CLIENT_ID = "ARaZ2EHNqXvXfl_L3mRZryFDkDZ_SEJc4JtcxwP25EzgP3I_Q3nr8JsyVpMp
 PAYPAL_CLIENT_SECRET = "EBfDUYC-WIR-wrMtoQ_3g-tj0vhZCd15mUcCJjsZeDRx28aPOVMTf3qbsrkuAlVJ4ScEHFiO1CXB42-k"
 
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 CHANNEL_LAYERS = {
     "default": {
