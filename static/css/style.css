@@ -557,6 +557,16 @@ ul {
   background-color: #9ecb43;
 }
 /* List lesson */
+.accordionExample .content__.content_course{
+  width: 80%;
+  margin: auto;
+}
+
+.accordionExample .content__.content_course .kphmlc_part{
+  min-width: 410px;
+  height: 158px;
+  margin-right: 50px;
+}
 .list_lesson_course {
   margin: 0 47px;
 }
@@ -692,7 +702,7 @@ ul {
 }
 .kphmlcpl_tvi {
   color: #585858;
-
+  font-size: 15px;
   margin-top: -5px;
 }
 .kphmlcpl_text {
@@ -3155,8 +3165,8 @@ svg:not(:root).svg-inline--fa {
 
 .khta_game1_artext {
   width: 300px;
-  top: 367px;
-  left: 463px;
+  top: 294px;
+  left: 529px;
   font-size: 23px;
   font-family: caviar;
 }
@@ -3165,14 +3175,14 @@ svg:not(:root).svg-inline--fa {
   width: 37px;
   height: 39px;
   background-position: -37px 0px;
-  left: 413px;
-  top: 366px;
+  left: 854px;
+  top: 293px;
   background-image: url(/static/img/course/btrans.png);
 }
 .khta_game2_artext {
   width: 300px;
   top: 296px;
-  left: 230px;
+  left: 287px;
   font-size: 23px;
   font-family: caviar;
 }
@@ -3185,8 +3195,8 @@ svg:not(:root).svg-inline--fa {
   cursor: pointer;
   width: 196px;
   height: 88px;
-  top: 522px;
-  left: 619px;
+  top: 410px;
+  left: 721px;
   background-image: url(/static/img/course/bplay.png);
 }
 .khta_game2_btran {
@@ -3194,7 +3204,7 @@ svg:not(:root).svg-inline--fa {
   background-position: -52px 0px;
   width: 52px;
   height: 52px;
-  left: 575px;
+  left: 670px;
   top: 250px;
   background-image: url(/static/img/course/gfb0_tran_b.png);
 }
@@ -3203,7 +3213,7 @@ svg:not(:root).svg-inline--fa {
   width: 184px;
   height: 134px;
   top: 360px;
-  left: 650px;
+  left: 773px;
   background-image: url(/static/img/course/gfb0_start.png);
 }
 .khta_game2_bstart:hover {

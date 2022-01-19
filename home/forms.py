@@ -10,7 +10,7 @@ class registerForm(UserCreationForm):
 
         user = MyUser.objects.filter(email__iexact=email).exists()
         if user:
-            raise ValidationError(_('Email này đã có người sử dụng.'))
+            raise ValidationError('Email này đã có người sử dụng.')
 
         return email
     class Meta:
