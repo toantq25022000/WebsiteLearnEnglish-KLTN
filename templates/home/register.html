@@ -64,21 +64,7 @@
                    
                 {% endif %}
                 {{ form.non_field_errors }}
-                {% if messages %}
-
-                    {% for message in messages %}
-            
-                    <!--Panel-->
-                    <div class="card border-danger mb-3">
-                        <div class="card-header text-danger">
-                            <p class="card-title">{{ message }}</p>
-                        </div>
-                    </div>
-                    <!--/.Panel-->
-                    
-                    {% endfor %}
-            
-                {% endif %}
+                
                 <div class="form-input">
                   <label for="id_username">Tên đăng nhập</label>
                   {{form.username}}

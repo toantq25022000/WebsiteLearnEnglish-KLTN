@@ -40,6 +40,7 @@
     }
     
     function join_room(_self){
+        console.log($(_self).attr('id'))
     $.post("{% url 'competition:get_method_post_join_room' %}",
     {
         room_id: $(_self).attr('id')
@@ -116,7 +117,7 @@
             <tr 
                 class="ctr-lr-room${data[0].status === 'Phòng chờ' ? ' waiting' : '' }${data[0].is_private === true ? ' private' : ''}"
                  type="${data[0].count_max_user}"  open="${isOpen}" private="${data[0].is_private === true ? 1 : 0}"
-                 class_id="${data[0].class_compete}" id_room="${data[0].id_room}" onclick="return join_room(this);" onmousemove="return show_hint_room({ self: this, e: event });" onmouseout="return hide_hint_room(event);"
+                 class_id="${data[0].class_compete}" id="${data[0].id_room}" onclick="return join_room(this);" onmousemove="return show_hint_room({ self: this, e: event });" onmouseout="return hide_hint_room(event);"
             >
                 <td class="ctr-lrblm-number"></td>
                 <td class="ctr-lrblm-master">

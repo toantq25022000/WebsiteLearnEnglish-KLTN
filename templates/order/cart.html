@@ -75,7 +75,7 @@
                         <a href="{% url 'order:remove-item-from-cart' course_id=cart.item.id  %}" type="button" class="card-link-secondary small text-uppercase mr-3 text-dark"><i
                             class="fas fa-trash-alt mr-1"></i> Remove item </a>
                     </div>
-                    {% comment %} <span class="mb-0 discount-price-cs"><span><strong >{{cart.total_price|intcomma}} <sup>đ</sup></strong></span></span> {% endcomment %}
+                 
                     <p class="mb-0"><span><strong >{{cart.total_price|intcomma}} <sup>đ</sup></strong></span></p>
                     </div>
                 </div>

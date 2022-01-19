@@ -148,6 +148,7 @@ loadDataWMCard = () => {
       array[j] = temp;
     }
   }
+
   //fuction time count
   function timeCountCard(){
     var minutesLabel = document.getElementById("kpt_minute");
@@ -250,6 +251,7 @@ incrementScoreWMCard = num => {
     scoreWMCard += num
     animationTextChangeWMCard(scoreWMCard, parseInt(yScoreCard.textContent), yScoreCard)
 }
+
 function baseGetPostDataWMCard() {
 
     return new Promise(function (resolve, reject) {
@@ -406,6 +408,7 @@ clickItemCard = () => {
                       }
                     }
                   }
+                  
                   if (countCorrectItemCard === listCard.length) {
                     ifDefaultClickWMCard = false;
                     setTimeout(() => {
