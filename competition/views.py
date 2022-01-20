@@ -540,22 +540,29 @@ def get_method_post_join_room(request):
 
             channel_layers = get_channel_layer()
             if host_exists:
-                print('delete hosst room')
-                host_exists[0].delete()
-                item = {
-                    'type_method':'delete_room_by_host_john_diff',
-                    'username':request.user.username,
-                }
-                data = []
-                data.append(item)
-                async_to_sync(channel_layers.group_send)(
-                    "wait_"+room_id,
-                    {
-                        'type':'delete_room_by_host_john_room_diff',
-                        'message': list(data),
-                    })
-                #duoc vao phong
-                return JsonResponse({'status':202})
+                if room.objects.filter(user_host = request.user):
+                    if status_room == 2:  # đang thi
+                        # dang dien ra
+                        return JsonResponse({'status':403})
+                    #duoc vao phong
+                    return JsonResponse({'status':202})
+                else:
+                    print('delete hosst room')
+                    host_exists[0].delete()
+                    item = {
+                        'type_method':'delete_room_by_host_john_diff',
+                        'username':request.user.username,
+                    }
+                    data = []
+                    data.append(item)
+                    async_to_sync(channel_layers.group_send)(
+                        "wait_"+room_id,
+                        {
+                            'type':'delete_room_by_host_john_room_diff',
+                            'message': list(data),
+                        })
+                    #duoc vao phong
+                    return JsonResponse({'status':202})
 
             #neu la chu phong ma vao phong do
             if request.user == room.user_host:
@@ -656,7 +663,7 @@ def post_wait_to_play_compete(request):
         room_qs = RoomCompetition.objects.filter(id_room = room_id)
         if room_qs:
             room = room_qs[0]    
-            room.status = 2
+            
             room.save()
             channel_layers = get_channel_layer()
             item = {

@@ -388,7 +388,7 @@ function countDownProgress(){
     var downloadTimer = setInterval(setTime2, 1000);
 
     function setTime2() {
-        reverse_counter -= 20;
+        reverse_counter -= 10;
         document.getElementById("progress-bar-ctr").style.width = reverse_counter+"%";
         
         if(reverse_counter <= 0)
