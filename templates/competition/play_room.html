@@ -642,8 +642,8 @@ playRoomSocket.onmessage = function (e) {
             break;
 
         case 'start_play_countdown':
-            initPlayCompete();
             timeCountTimer();
+           
             break;
         case 'post_answer_incrr_crr':
            
@@ -725,6 +725,7 @@ playRoomSocket.onmessage = function (e) {
                         arrayChooseObjectArray.push('pronunciationsOtherArray-'+value);
                     });
                     
+                    initPlayCompete();
                 });
             break;
         default:
@@ -736,6 +737,9 @@ playRoomSocket.onmessage = function (e) {
 
 const initPlayCompete = () => {
     MAX_QUESTION = arrayChooseObjectArray.length;
+    console.log(MAX_QUESTION)
+    console.log(arrayChooseObjectArray.length)
+    console.log($('#ctr-pqs-total'))
     $('#ctr-pqs-total').html(MAX_QUESTION);
     $('#ctr-pryr-total').html(MAX_QUESTION);
     $('#ctr-pryr-number').html(0);
